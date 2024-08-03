@@ -1,10 +1,15 @@
-﻿namespace Kwops.Mobile
+﻿namespace Kwops.Mobile;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        Console.WriteLine("hi");
+        InitializeComponent();
+    }
+
+    public async void OnMenuItemClicked(object sender, EventArgs e)
+    {
+        await Current.GoToAsync("//LoginPage");
     }
 }

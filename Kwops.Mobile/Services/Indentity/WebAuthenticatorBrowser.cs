@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
 using IdentityModel.Client;
 using IdentityModel.OidcClient.Browser;
+using IBrowser = IdentityModel.OidcClient.Browser.IBrowser;
 
 namespace Kwops.Mobile.Services.Identity;
 
-internal class WebAuthenticatorBrowser : IdentityModel.OidcClient.Browser.IBrowser
+internal class WebAuthenticatorBrowser : IBrowser
 {
     public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
     {

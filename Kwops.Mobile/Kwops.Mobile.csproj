@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net8.0-maccatalyst;net8.0-ios;net8.0-android;net8.0</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
@@ -13,7 +13,7 @@
 		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
 
-		<OutputType>Exe</OutputType>
+		<OutputType Condition="'$(TargetFramework)' != 'net8.0'">Exe</OutputType>
 		<RootNamespace>Kwops.Mobile</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
@@ -36,6 +36,46 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>kwops.mobile.pxl</ApplicationId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -61,19 +101,37 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Platforms\Android\Resources\xml\network_security_config.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="2.0.0" />
 		<PackageReference Include="IdentityModel.OidcClient" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.71" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.71" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.61" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\LoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
+	  <MauiXaml Update="Views\MainPage.xaml">
+	    <SubType>Designer</SubType>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Test.xaml">
-	    <Generator>MSBuild:Compile</Generator>
+	  <MauiXaml Update="Views\TeamsPage.xaml">
+	    <SubType>Designer</SubType>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\TeamsPage.xaml.cs">
+	    <DependentUpon>TeamsPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionKwopsMobileHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

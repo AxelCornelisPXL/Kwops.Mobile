@@ -1,4 +1,4 @@
-﻿namespace Kwops.Mobile.Services.Identity;
+﻿namespace KWops.Mobile.Services.Identity;
 
 public interface ILoginResult
 {

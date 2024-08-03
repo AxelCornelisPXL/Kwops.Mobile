@@ -1,10 +1,10 @@
-﻿using Kwops.Mobile;
-using Kwops.Mobile.Services.Identity;
-using Kwops.Mobile.ViewModels;
-using Kwops.Mobile.Views;
+﻿using CommunityToolkit.Maui;
+using Kwops.Mobile;
 using KWops.Mobile.Services;
+using KWops.Mobile.Services.Identity;
 using KWops.Mobile.Settings;
-using Microsoft.Maui.Controls.Compatibility.Hosting;
+using KWops.Mobile.ViewModels;
+using Kwops.Mobile.Views;
 
 public static class MauiProgram
 {
@@ -13,6 +13,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -35,7 +36,7 @@ public static class MauiProgram
         // Services
         services.AddTransient<IIdentityService, IdentityService>();
         services.AddTransient<INavigationService, NavigationService>();
-       // services.AddTransient<IToastService, ToastService>();
+        services.AddTransient<IToastService, ToastService>();
 
         // Other
         services.AddSingleton<ITokenProvider, TokenProvider>();

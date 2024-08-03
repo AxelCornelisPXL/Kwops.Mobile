@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using IdentityModel.OidcClient;
+﻿using IdentityModel.OidcClient;
+using Kwops.Mobile.Services.Identity;
 using KWops.Mobile.Settings;
 
-namespace Kwops.Mobile.Services.Identity;
+namespace KWops.Mobile.Services.Identity;
 
 public class IdentityService : IIdentityService
 {
@@ -32,7 +31,7 @@ public class IdentityService : IIdentityService
 #endif
         try
         {
-            LoginResult result = await client.LoginAsync(new LoginRequest());
+            LoginResult result =  await client.LoginAsync(new LoginRequest());
             return new IdentityModelLoginResult(result);
 
         }
