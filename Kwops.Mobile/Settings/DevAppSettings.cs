@@ -1,4 +1,4 @@
-﻿namespace KWops.Mobile.Settings;
+﻿namespace Kwops.Mobile.Settings;
 
 public class DevAppSettings : IAppSettings
 {

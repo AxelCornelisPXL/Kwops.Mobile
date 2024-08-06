@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace KWops.Mobile.ViewModels;
+namespace Kwops.Mobile.ViewModels;
 
 public class BaseViewModel : INotifyPropertyChanged
 {

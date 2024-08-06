@@ -1,4 +1,4 @@
-﻿namespace KWops.Mobile.Services.Identity;
+﻿namespace Kwops.Mobile.Services.Identity;
 
 public interface IIdentityService
 {

@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 
-namespace KWops.Mobile.Services;
+namespace Kwops.Mobile.Services;
 
 public class ToastService : IToastService
 {

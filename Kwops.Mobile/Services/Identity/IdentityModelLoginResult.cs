@@ -1,6 +1,6 @@
 ﻿using IdentityModel.OidcClient;
 
-namespace KWops.Mobile.Services.Identity;
+namespace Kwops.Mobile.Services.Identity;
 
 public class IdentityModelLoginResult : ILoginResult
 {

@@ -1,4 +1,4 @@
-﻿namespace KWops.Mobile.Services;
+﻿namespace Kwops.Mobile.Services;
 
 public interface INavigationService
 {

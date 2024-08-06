@@ -1,6 +1,6 @@
-﻿using KWops.Mobile.Services;
-using KWops.Mobile.Services.Identity;
-using KWops.Mobile.ViewModels;
+﻿using Kwops.Mobile.Services;
+using Kwops.Mobile.Services.Identity;
+using Kwops.Mobile.ViewModels;
 using Moq;
 
 namespace KWops.Mobile.Tests.ViewModels;

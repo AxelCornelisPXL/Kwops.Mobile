@@ -1,12 +1,11 @@
-﻿using KWops.Mobile.ViewModels;
-
+﻿using Kwops.Mobile.ViewModels;
 namespace Kwops.Mobile.Views;
 
 public partial class LoginPage : ContentPage
 {
     public LoginPage(LoginViewModel viewModel)
     {
-        // InitializeComponent();
+        InitializeComponent();
         BindingContext = viewModel;
     }
 }

@@ -1,19 +1,18 @@
-﻿using CommunityToolkit.Maui;
-using Kwops.Mobile;
-using KWops.Mobile.Services;
-using KWops.Mobile.Services.Identity;
-using KWops.Mobile.Settings;
-using KWops.Mobile.ViewModels;
+﻿using Kwops.Mobile;
+using Kwops.Mobile.Services;
+using Kwops.Mobile.Services.Identity;
+using Kwops.Mobile.Settings;
+using Kwops.Mobile.ViewModels;
 using Kwops.Mobile.Views;
+using AppBuilderExtensions = CommunityToolkit.Maui.AppBuilderExtensions;
 
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
-        builder
-            .UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
+        AppBuilderExtensions.UseMauiCommunityToolkit(builder
+                .UseMauiApp<App>())
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -1,8 +1,7 @@
 ﻿using IdentityModel.OidcClient;
-using Kwops.Mobile.Services.Identity;
-using KWops.Mobile.Settings;
+using Kwops.Mobile.Settings;
 
-namespace KWops.Mobile.Services.Identity;
+namespace Kwops.Mobile.Services.Identity;
 
 public class IdentityService : IIdentityService
 {

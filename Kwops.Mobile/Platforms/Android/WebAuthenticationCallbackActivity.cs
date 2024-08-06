@@ -2,7 +2,7 @@
 using Android.Content;
 using Android.Content.PM;
 
-namespace KWops.Mobile.Platforms.Android;
+namespace Kwops.Mobile.Platforms.Android;
 
 [Activity(NoHistory = true, LaunchMode = LaunchMode.SingleTop, Exported = true)]
 [IntentFilter(new[] { Intent.ActionView },
