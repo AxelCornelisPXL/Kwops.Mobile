@@ -1,5 +1,7 @@
 ﻿using Kwops.Mobile;
 using Kwops.Mobile.Services;
+using Kwops.Mobile.Services.Backend;
+using KWops.Mobile.Services.Backend;
 using Kwops.Mobile.Services.Identity;
 using Kwops.Mobile.Settings;
 using Kwops.Mobile.ViewModels;
@@ -40,5 +42,9 @@ public static class MauiProgram
         // Other
         services.AddSingleton<ITokenProvider, TokenProvider>();
         services.AddSingleton<IAppSettings, DevAppSettings>();
+
+        //no clue if we need this, but I added it just in case
+        services.AddSingleton<IBackendService, BackendService>();
+        services.AddSingleton<ITeamsService, TeamsService>();
     }
 }

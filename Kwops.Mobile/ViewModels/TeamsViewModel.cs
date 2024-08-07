@@ -2,8 +2,9 @@
 using System.Collections.ObjectModel;
 using Kwops.Mobile.Services;
 using Kwops.Mobile.Services.Backend;
+using Kwops.Mobile.ViewModels;
 
-namespace Kwops.Mobile.ViewModels;
+namespace KWops.Mobile.ViewModels;
 
 public class TeamsViewModel : BaseViewModel
 {
